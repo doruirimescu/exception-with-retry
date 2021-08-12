@@ -1,5 +1,6 @@
 exception-with-retry
 ====================
+![Pipeline status](https://github.com/doruirimescu/exception-with-retry/actions/workflows/main.yml/badge.svg?branch=master) 
 
 
 Wraps any method which throws exceptions. Retries calls when exceptions are thrown.
