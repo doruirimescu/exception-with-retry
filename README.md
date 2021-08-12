@@ -1,6 +1,4 @@
-====================
-exception-with-retry
-====================
+# exception-with-retry
 
 
 Wraps any method which throws exceptions. Retries calls when exceptions are thrown.
@@ -11,8 +9,6 @@ Description
 
 Check the [unit tests](https://github.com/doruirimescu/exception-with-retry/blob/master/tests/test_1.py) for usage.
 
-
-.. _pyscaffold-notes:
 
 Making Changes & Contributing
 =============================
