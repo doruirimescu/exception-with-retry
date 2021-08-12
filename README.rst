@@ -10,6 +10,7 @@ Description
 ===========
 
 Check the unit tests for usage.
+https://github.com/doruirimescu/exception-with-retry/blob/master/tests/test_1.py
 
 .. _pyscaffold-notes:
 
