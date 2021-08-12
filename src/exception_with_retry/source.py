@@ -13,13 +13,11 @@ __license__ = "MIT"
 
 
 class ExceptionWithRetry:
-    """[summary]"""
-
     def __init__(self, method, n_retry=5, sleep_time_s=0.5):
         """Construct ExceptionWithRetry
 
         Args:
-            method ([type]): Method which throws exception to call.
+            method(function): Method which throws exception to call.
             n_retry (int, optional): Number of retries. Defaults to 5.
             sleep_time_s (float, optional): Sleep time between consecutive
             retries in seconds. Defaults to 0.5.
@@ -30,13 +28,13 @@ class ExceptionWithRetry:
         self._sleep_time_s = sleep_time_s
 
     def run(self, args):
-        """[summary]
+        """Execute the wrapped method, and retry for _max_retries.
 
         Args:
-            args ([type]): [description]
+            args (list): list of arguments for the wrapped method.
 
         Returns:
-            [type]: [description]
+            [method return type]: value which the wrapped method returns.
         """
         if self._retries < self._max_retries:
             self._retries = self._retries + 1
