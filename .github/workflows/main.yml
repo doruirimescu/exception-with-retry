@@ -23,9 +23,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         export PYTHONPATH=exception_with_retry
     - name: Test
-      uses: actions/upload-artifact@v2
-      with:
-          name: code-coverage-report
-          path: cvg.txt
       run: |
         tox |grep TOTAL.* |grep -P -oh '[\d]+%' > cvg.txt
+    - name: Artifacts
+          uses: actions/upload-artifact@v2
+          with:
+            name: code-coverage-report
+            path: cvg.txt
