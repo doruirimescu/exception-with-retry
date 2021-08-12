@@ -3,14 +3,13 @@ exception-with-retry
 ====================
 
 
-Add a short description here!
+Wraps any method which throws exceptions. Retries calls when exceptions are thrown.
 
 
 Description
 ===========
 
-A longer description of your project goes here...
-
+Check the unit tests for usage.
 
 .. _pyscaffold-notes:
 
