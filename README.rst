@@ -9,8 +9,8 @@ Wraps any method which throws exceptions. Retries calls when exceptions are thro
 Description
 ===========
 
-Check the unit tests for usage.
-https://github.com/doruirimescu/exception-with-retry/blob/master/tests/test_1.py
+Check the [unit tests](https://github.com/doruirimescu/exception-with-retry/blob/master/tests/test_1.py) for usage.
+
 
 .. _pyscaffold-notes:
 
