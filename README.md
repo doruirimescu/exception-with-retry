@@ -1,5 +1,5 @@
 exception-with-retry
-===========
+====================
 
 
 Wraps any method which throws exceptions. Retries calls when exceptions are thrown.
