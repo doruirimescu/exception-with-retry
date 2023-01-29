@@ -1,4 +1,6 @@
+import functools
 import time
+from typing import Any, Callable
 
 __author__ = "Doru Irimescu"
 __copyright__ = "Doru Irimescu"
@@ -27,7 +29,7 @@ class ExceptionWithRetry:
         self._max_retries = n_retry
         self._sleep_time_s = sleep_time_s
 
-    def run(self, args):
+    def run(self, *args, **kwargs):
         """Execute the wrapped method, and retry for _max_retries.
 
         Args:
@@ -36,11 +38,38 @@ class ExceptionWithRetry:
         Returns:
             [method return type]: value which the wrapped method returns.
         """
-        if self._retries < self._max_retries:
+
+        try:
             self._retries = self._retries + 1
-            try:
-                return self._method(*args)
-            except Exception as e:
+            return self._method(*args, **kwargs)
+        except Exception as e:
+            if self._retries < self._max_retries:
                 print(e)
                 time.sleep(self._sleep_time_s)
-                return self.run(args)
+                return self.run(*args, **kwargs)
+            else:
+                raise e
+
+
+def exception_with_retry(n_retry: int, sleep_time_s: float):
+    """Use this decorator to retry calling your function n_retry times,
+    with sleep_time_s in between unsuccessful calls.
+    Will finally throw the original error if the last retry fails.
+
+    Args:
+        n_retry (int): number of retries
+        sleep_time_s (float): time to sleep between unsuccessful retries, in seconds
+
+    Returns:
+        Callable[..., Any]: decorated function
+    """
+
+    def dec(func: Callable[..., Any]) -> Callable[..., Any]:
+        @functools.wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            ewr = ExceptionWithRetry(func, n_retry, sleep_time_s)
+            return ewr.run(*args, **kwargs)
+
+        return wrapper
+
+    return dec
