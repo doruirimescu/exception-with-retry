@@ -3,7 +3,7 @@ exception-with-retry
 ![Pipeline status](https://github.com/doruirimescu/exception-with-retry/actions/workflows/main.yml/badge.svg?branch=master) 
 
 
-Wraps any method which throws exceptions. Retries calls when exceptions are thrown.
+Wraps any method which throws exceptions. Retries calls when exceptions are thrown. Available on [PyPI](https://pypi.org/project/exception-with-retry/) and installable via pip. Don't forget to star the project !
 
 
 Description
