@@ -6,6 +6,9 @@ if sys.version_info[:2] >= (3, 8):
 else:
     from importlib_metadata import PackageNotFoundError, version  # pragma: no cover
 
+from exception_with_retry.source import ExceptionWithRetry, exception_with_retry
+
+__all__ = ["ExceptionWithRetry", "exception_with_retry"]
 try:
     # Change here if project is renamed and does not equal the package name
     dist_name = "exception-with-retry"

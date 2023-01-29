@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from exception_with_retry.source import ExceptionWithRetry, exception_with_retry
+from exception_with_retry import ExceptionWithRetry, exception_with_retry
 
 __author__ = "Doru Irimescu"
 __copyright__ = "Doru Irimescu"
