@@ -16,6 +16,17 @@ Description
   * `git tag MAJOR.MINOR[.PATCH]`
   * `tox -e clean && tox -e build` 
   * `tox -e publish -- --repository pypi`
+  
+Example usage:
+```python3
+@exception_with_retry(n_retry=3, sleep_time_s=1.5)
+def wrapped_method(number_1: int, number_2: int = 0, calls: List = []):
+    calls.append(1)
+    if number_1 < 0:
+        raise Exception("Not going to happen")
+    else:
+        return number_1 + number_2
+```
 
 Making Changes & Contributing
 =============================
