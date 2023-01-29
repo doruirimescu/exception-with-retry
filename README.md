@@ -12,7 +12,10 @@ Description
 - Check the [unit tests](https://github.com/doruirimescu/exception-with-retry/blob/master/tests/test_1.py) for usage.
 - Build and run tests locally: `tox`
 - Publish to [test pypi](https://test.pypi.org/): `tox -e clean && tox -e build && tox -e publish`
-- Publish to [pypi](https://pypi.org/project/exception-with-retry/): Make a new tag. Then, `tox -e publish -- --repository pypi`
+- Publish to [pypi](https://pypi.org/project/exception-with-retry/): 
+  * `git tag MAJOR.MINOR[.PATCH]`
+  * `tox -e clean && tox -e build` 
+  * `tox -e publish -- --repository pypi`
 
 Making Changes & Contributing
 =============================
