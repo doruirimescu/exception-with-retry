@@ -38,17 +38,16 @@ class ExceptionWithRetry:
         Returns:
             [method return type]: value which the wrapped method returns.
         """
-
-        try:
-            self._retries = self._retries + 1
-            return self._method(*args, **kwargs)
-        except Exception as e:
-            if self._retries < self._max_retries:
+        exception = None
+        for i in range(self._max_retries):
+            try:
+                result = self._method(*args, **kwargs)
+                return result
+            except Exception as e:
+                exception = e
                 print(e)
                 time.sleep(self._sleep_time_s)
-                return self.run(*args, **kwargs)
-            else:
-                raise e
+        raise exception
 
 
 def exception_with_retry(n_retry: int, sleep_time_s: float):
